@@ -1,6 +1,6 @@
 # Creates a base image for emcniece/wordpress
 
-NAMESPACE := emcniece
+NAMESPACE := ithiru
 PROJECT := wordpress
 PLATFORM := linux
 ARCH := amd64
