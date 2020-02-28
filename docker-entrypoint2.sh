@@ -95,8 +95,9 @@ fi
 # Set up Nginx Helper log directory
 mkdir -p wp-content/uploads/nginx-helper
 
-# Set usergroup for all modified files
-chown -R www-data:www-data /var/www/html/
+# Set usergroup for all modified files - Quier and 
+# Dont fail if there is any error to support readonly mounts of wp-content
+chown -f -R www-data:www-data /var/www/html/ || true
 
 if [ "$ENABLE_CRON" == "true" ]; then
   echo "Starting Cron daemon..."
