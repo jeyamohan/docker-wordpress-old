@@ -3,11 +3,11 @@ FROM wordpress:5.3.2-php7.4-fpm-alpine
 RUN apk --no-cache add openssl imagemagick perl
 
 ENV PHPREDIS_VERSION=5.0.2 \
-    CONFIG_VAR_FLAG=WPFPM_ \
-    PAGER=more \
-    WP_PLUGINS="nginx-helper redis-cache" \
-    ENABLE_HYPERDB=false \
-    ENABLE_CRON=false
+  CONFIG_VAR_FLAG=WPFPM_ \
+  PAGER=more \
+  WP_PLUGINS="nginx-helper redis-cache" \
+  ENABLE_HYPERDB=false \
+  ENABLE_CRON=false
 
 RUN docker-php-source extract \
   && curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$PHPREDIS_VERSION.tar.gz \
@@ -31,5 +31,7 @@ ADD config/bash/.bashrc /root
 
 # Inherit & override default entrypoint
 COPY docker-entrypoint2.sh /usr/local/bin/
+RUN chmod a+x /usr/local/bin/docker-entrypoint2.sh
+
 ENTRYPOINT ["docker-entrypoint2.sh"]
 CMD ["php-fpm"]
