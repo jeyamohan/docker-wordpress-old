@@ -1,11 +1,10 @@
-FROM wordpress:5.3.2-php7.4-fpm-alpine
+FROM wordpress:6.0.0-php7.4-fpm-alpine
 
 RUN apk --no-cache add openssl imagemagick perl libwebp-tools libwebp
 
 ENV PHPREDIS_VERSION=5.0.2 \
     CONFIG_VAR_FLAG=WPFPM_ \
     PAGER=more \
-    WP_PLUGINS="nginx-helper redis-cache" \
     ENABLE_HYPERDB=false \
     ENABLE_CRON=false
 
