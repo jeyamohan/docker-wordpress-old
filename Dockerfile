@@ -1,4 +1,4 @@
-FROM wordpress:6.0.0-php7.4-fpm-alpine
+FROM wordpress:6.1.0-php7.4-fpm-alpine
 
 RUN apk --no-cache add openssl imagemagick perl libwebp-tools libwebp
 
