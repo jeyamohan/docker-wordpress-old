@@ -2,7 +2,7 @@ FROM wordpress:6.3.2-php8.2-fpm-alpine
 
 RUN apk --no-cache add openssl imagemagick perl libwebp-tools libwebp
 
-ENV PHPREDIS_VERSION=5.0.2 \
+ENV PHPREDIS_VERSION=5.3.7 \
     CONFIG_VAR_FLAG=WPFPM_ \
     PAGER=more \
     ENABLE_HYPERDB=false \
